@@ -1,0 +1,6 @@
+data = input('Digite algo')
+print('O tipo desse dado é',type(data))
+print('Esse dado é numerico? ',data.isnumeric())
+print('Esse dado é alfanumerico? ',data.isalnum())
+print('Esta em maiusculo? ', data.isupper())
+print('Esta em minusculo? ', data.islower())
