@@ -1,9 +1,5 @@
-import pygame
-import time
-
-pygame.init()
-pygame.mixer.music.load('../audio.mp3')
-pygame.mixer.music.play()
-
-while pygame.mixer.music.get_busy():
-     time.sleep(0.1)
+nome = input('Digite seu nome Completo ')
+print( nome.upper())
+print(nome.lower())
+print(len(nome.replace(' ', '')))
+print(len(nome.split()[0]))
