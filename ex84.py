@@ -1,31 +1,39 @@
-dados = list()
-pessoas = list()
-mai = men = 0
+galera = list()
+teste = list()
+
+nomapei = list()
+nomenpe = list()
 while True:
-  nome = input('Digite o nome da pessoa: ')
-  peso = int(input('Digite o peso da pessoa: '))
-  dados.append(nome)
-  dados.append(peso)
-  pessoas.append(dados[:])
+    teste.append(input('Nome: '))
+    teste.append(float(input('Peso: ')))
+    galera.append(teste[:])
+    teste.clear()
 
-  if len(pessoas) == 1:
-    mai = men = dados[1]
-  else :
-    if dados[1] > mai:
-      mai = dados[1]
-    if dados[1] < men:
-      men = dados[1]
+    choice = input('Deseja continuar? S/N').strip().lower()
 
-  dados.clear()
+    if choice != 's':
 
-  choice = str(input('Deseja continuar? S/N')).upper()
-  if choice == 'N':
-    print(f'Foram cadastradas {len(pessoas)} pessoas')
-    print(f'O maior peso foi {mai}. Peso de ', end='')
-    for p in pessoas:
-      if p[1] == mai:
-        print(f'[{p[0]}]')
-    print(f'O menor peso foi de {men}. Peso de ', end='')
-    for p in pessoas:
-      if p[1] == men:
-        print(f'[{p[0]}]')
+        maipe = menpe = galera[0][1]
+
+        for pessoas in galera:
+
+            if pessoas[1] > maipe:
+                maipe = pessoas[1]
+
+            if pessoas[1] < menpe:
+                menpe = pessoas[1]
+
+
+        for pessoas in galera:
+
+            if pessoas[1] == maipe:
+                nomapei.append(pessoas[0])
+
+            if pessoas[1] == menpe:
+                nomenpe.append(pessoas[0])
+
+
+        break
+
+print(f'O maior peso foi {maipe} de {nomapei}')
+print(f'O menor peso foi {menpe} de {nomenpe}')
