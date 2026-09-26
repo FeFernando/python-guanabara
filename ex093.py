@@ -1,8 +1,7 @@
 relatorio = {}
 lista_gols =[]
 total_gols = 0
-nome = str(input('Nome do jogador: '))
-relatorio['nome'] = nome
+relatorio['nome'] = str(input('Nome do jogador: '))
 partidas = int(input('Quantas partidas ele jogou?: '))
 
 for i in range(partidas):

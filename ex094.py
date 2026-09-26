@@ -1,19 +1,12 @@
 pessoas_cadastradas = []
-total_pessoas = 0
 media_idade = 0
-todas_mulheres = []
+
 acima_media = []
 while True:
     nome = str(input('Nome: '))
     idade = int(input('Idadae: '))
     sexo = str(input('Sexo F/M: ')).strip().lower()
-    total_pessoas +=1
     choice = str(input('Deseja continuar? s/n: ')).strip().lower()
-
-    if sexo == 'f':
-        todas_mulheres.append(nome)
-
-
 
     pessoa = {
         "nome" : nome,
@@ -29,9 +22,10 @@ while True:
         for pesso in pessoas_cadastradas:
             soma += pesso['idade']
 
-        media_idade = soma / total_pessoas
-        if pessoa['idade'] > media_idade:
-            acima_media.append(pessoa)
+        media_idade = (soma / len(pessoas_cadastradas))
+        for user in pessoas_cadastradas:
+            if user['idade'] > media_idade:
+                acima_media.append(user)
 
         print(f'{soma}')
         print(f'{media_idade}')
@@ -40,9 +34,12 @@ while True:
         break
 print(30*'-=')
 print()
-print(f'-O grupo tem {total_pessoas} pessoas.')
+print(f'-O grupo tem {len(pessoas_cadastradas)} pessoas.')
 print(f'-A media de idade é de {media_idade} anos.')
-print(f'-As mulheres cadastradas foram {todas_mulheres}.')
+print('-As mulheres cadastradas foram.', end='')
+for p in pessoas_cadastradas:
+    if p['sexo'] == 'f':
+        print(f'{p['nome']}', end='')
 print('Lista de pessoas que estão acima da média de idade:')
 for acim in acima_media:
-    print(f'Nome: {acim}')
+    print(f'Nome: {acim["nome"]}, Idade: {acim["idade"]}')
