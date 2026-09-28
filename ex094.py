@@ -2,6 +2,8 @@ pessoas_cadastradas = []
 media_idade = 0
 
 acima_media = []
+
+
 while True:
     nome = str(input('Nome: '))
     idade = int(input('Idadae: '))
