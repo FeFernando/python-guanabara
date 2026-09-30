@@ -31,12 +31,17 @@ while True:
             print(f'{str(d):<15}', end='')
         print()
 
-    choice = int(input('Qual jogador deseja ver o relatório (999 encerra programa)'))
+    choice = int(input('Qual jogador deseja ver o relatório, digite o codigo (999 encerra programa)'))
     if choice >= len(time):
         print('Valor não encontrado digite outro : ')
 
     if choice == 999:
         break
     else:
-        print(f'O relatório do jogador {choice} é: ')
+        jogador_escolhido = time[choice]
+
+        print(f'O relatório do jogador {choice} é:')
+        print(f'O nome do jogador é {jogador_escolhido["nome"]}')
+        print(f'Fez {jogador_escolhido["lista_gols"]} gols')
+        print(f'Total de gols: {jogador_escolhido["total_gols"]}')
         
