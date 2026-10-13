@@ -6,6 +6,7 @@ def leiaInt():
 
         except:
             print('\033[0;31mERRO DIGITE UM NUMERO INTEIRO!!\033[m')
+            continue
         else:
             print(f'Você acabou de digitar o {num}')
             break

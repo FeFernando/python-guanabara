@@ -1,13 +1,18 @@
+import urllib.error
 import urllib.request
-import  urllib.error
 
-url = "https://www.pudim.com.br"
+# Criamos um cabeçalho para fingir que é um navegador acessando
+req = urllib.request.Request(
+    'https://pudim.com.br/',
+    headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
+)
 
 try:
-    conexao = urllib.request.urlopen(url, timeout=5)
-    print(f'O SITE DO PUDIM ESTA ACESSIVEL!!')
-except urllib.error.HTTPError:
-    print('O SITE ESTÁ ACESSÍVEL!')
-
+    site = urllib.request.urlopen(req)
 except urllib.error.URLError:
     print('O SITE NÃO ESTÁ ACESSÍVEL!')
+else:
+    print('O SITE DO PUDIM ESTÁ ACESSÍVEL!!')
+    
+    # Opcional: você pode ler o conteúdo se quiser
+    print(site.read())
